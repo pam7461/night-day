@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="./css/reset.css">
     <script src="./js/jquery-3.7.1.min.js"></script>
     <title>Web이란 무엇인가?</title>
+    <script>
+        $(function(){
+            
+        })
+    </script>
     <style>
         /* 기본스타일 모바일 우선 */
         @font-face {
@@ -80,7 +85,43 @@
             color:var(--day-color03);
         }
 
+        /* SECTION */
+        .sec{
+            padding:60px 0;
+        }
+        .sec .container{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:16px;
+        }
+        .sec-tit{
+            grid-area:2/1/3/-1;
+            font-weight:700;
+            font-size:1.4em;
+        }
+        .sec .img-box{
+            grid-area:1/1/2/-1;
+        }
+        .sec .p1{
+            grid-area:3/1/4/-1;
+        }
+        .sec .p2{
+            grid-area:4/1/5/-1;
+        }
+        .sec span{
+            font-weight:700;
+        }
+        .sec a{
+            color:var(--day-color02);
+        }
 
+        /* Footer */
+        .footer{
+            padding:36px 0;
+            background:var(--day-color01);
+            color:var(--day-color03);
+            text-align:center;
+        }
 
         
 
@@ -91,6 +132,7 @@
 
         /* 768이상 스타일 */
         @media (min-width:768px){
+            /* HEADER */
             .header{
                 padding:24px 0;
             }
@@ -102,6 +144,10 @@
             .btn{
                 top:70px;
             }
+
+            /* SECTION */
+
+
         }
 
 
@@ -111,6 +157,7 @@
 
         /* 960이상 스타일 */
         @media (min-width:960px){
+            /* HEADER */
             .header{
                 padding:48px 0;
             }
@@ -121,7 +168,25 @@
                 justify-content:space-between;
             }
             .btn{
+                right:calc(50% - 480px + 16px);
                 top:100px;
+            }
+
+            /* SECTION */
+            .sec{
+                padding:90px 0;
+            }
+            .sec-tit{
+                grid-area:1/1/2/-1;
+            }
+            .sec .img-box{
+                grid-area:2/1/3/2;
+            }
+            .sec .p1{
+                grid-area:2/2/3/-1;
+            }
+            .sec .p2{
+                grid-area:3/1/4/-1;
             }
         }
     </style>
@@ -145,8 +210,8 @@
             <div class="container">
                 <h2 class="sec-tit">Web이란</h2>
                 <div class="img-box"><img src="./images/img-web.jpg" alt="web 이미지"></div>
-                <p><span>월드 와이드 웹(World Wide Web, WWW, W3)</span>은 <a href="#">인터넷</a>에 연결된 <a href="#">컴퓨터</a>를 통해 사람들이 정보를 공유할 수 있는 전 세계적인 정보 공유 시스템을 말한다. 간단히 웹(the Web)이라 부르는 경우가 많다. 이 용어는 인터넷과 동의어로 쓰이는 경우가 많으나 엄격히 말해 서로 다른 개념이다. 웹은 <a href="#">전자 메일</a>과 같이 인터넷 통신망에서 동작하는 하나의 '서비스'일 뿐이다. 그러나 1993년 이래로 웹은 인터넷 구조의 절대적 위치를 차지하고 있다.</p>
-                <p><a href="#">인터넷</a>에서 <a href="#">HTTP</a> <a href="#">프로토콜</a>, <a href="#">하이퍼텍스트</a>, <a href="#">HTML</a>형식 등을 사용하여 그림과 문자를 교환하는 전송방식을 말하기도 한다.</p>
+                <p class="p1"><span>월드 와이드 웹(World Wide Web, WWW, W3)</span>은 <a href="#">인터넷</a>에 연결된 <a href="#">컴퓨터</a>를 통해 사람들이 정보를 공유할 수 있는 전 세계적인 정보 공유 시스템을 말한다. 간단히 웹(the Web)이라 부르는 경우가 많다. 이 용어는 인터넷과 동의어로 쓰이는 경우가 많으나 엄격히 말해 서로 다른 개념이다. 웹은 <a href="#">전자 메일</a>과 같이 인터넷 통신망에서 동작하는 하나의 '서비스'일 뿐이다. 그러나 1993년 이래로 웹은 인터넷 구조의 절대적 위치를 차지하고 있다.</p>
+                <p class="p2"><a href="#">인터넷</a>에서 <a href="#">HTTP</a> <a href="#">프로토콜</a>, <a href="#">하이퍼텍스트</a>, <a href="#">HTML</a>형식 등을 사용하여 그림과 문자를 교환하는 전송방식을 말하기도 한다.</p>
             </div>
         </section>
         <footer class="footer">
