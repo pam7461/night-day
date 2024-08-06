@@ -9,7 +9,38 @@
     <title>Web이란 무엇인가?</title>
     <script>
         $(function(){
-            
+            $('.btn').click(function(){
+                let btnTxt = $(this).text();
+                console.log(btnTxt);
+                if(btnTxt == 'Night'){
+                    $(this).text('Day');
+                    $('body').css({
+                        background:'var(--night-color03)',
+                        color:'var(--night-color01)',                        
+                    });
+                    $('a').css({
+                        color:'var(--night-color02)',
+                    });
+                    $('.footer').css({
+                        background:'var(--night-color01)',
+                        color:'var(--night-color03)',
+                    })
+
+                }else{
+                    $(this).text('Night');
+                    $('body').css({
+                        background:'var(--day-color03)',
+                        color:'var(--day-color01)',                        
+                    });
+                    $('a').css({
+                        color:'var(--day-color02)',
+                    });
+                    $('.footer').css({
+                        background:'var(--day-color01)',
+                        color:'var(--day-color03)',
+                    })
+                }
+            })
         })
     </script>
     <style>
