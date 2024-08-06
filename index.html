@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
     <script src="./js/jquery-3.7.1.min.js"></script>
     <title>Web이란 무엇인가?</title>
     <script>
@@ -41,6 +42,31 @@
                     })
                 }
             })
+
+            $('.gnb a').click(function(e){
+                e.preventDefault();
+            })
+            $('.gnb li').click(function(){
+                let jsonFileName = $(this).attr('data-json');
+                $.ajax({
+                    url:`./json/${jsonFileName}.json`,
+                    dataType:'json',
+                    success:function(obj){
+                        $('#sec-tit').html(obj.secTit);
+                        $('#sec-img').attr('src',obj.src);
+                        $('#sec-img').attr('alt',obj.alt);
+                        $('#sec-p1').html(obj.secP1);
+                        $('#sec-p2').html(obj.secP2);
+                    },
+                    error:function(){
+                        alert('Error');
+                        location.reload();
+                    }
+                })
+            })
+
+
+
         })
     </script>
     <style>
@@ -229,9 +255,9 @@
                 <h1 class="doc-tit"><a href="./index.html" title="시작 페이지로 이동합니다.">Web이란 무엇인가?</a></h1>
                 <nav>
                     <ul class="gnb mnb">
-                        <li><a href="./html5.html" title="html5 페이지로 이동합니다.">HTML5</a></li>
-                        <li><a href="./css3.html" title="css3 페이지로 이동합니다.">CSS3</a></li>
-                        <li><a href="./js.html" title="javaScript 페이지로 이동합니다.">javaScript</a></li>
+                        <li data-json="html5"><a href="./html5.html" title="html5 페이지로 이동합니다.">HTML5</a></li>
+                        <li data-json="css3"><a href="./css3.html" title="css3 페이지로 이동합니다.">CSS3</a></li>
+                        <li data-json="js"><a href="./js.html" title="javaScript 페이지로 이동합니다.">javaScript</a></li>
                     </ul>
                 </nav>
                 <button class="btn">Night</button>
@@ -239,10 +265,10 @@
         </header>
         <section class="sec">
             <div class="container">
-                <h2 class="sec-tit">Web이란</h2>
-                <div class="img-box"><img src="./images/img-web.jpg" alt="web 이미지"></div>
-                <p class="p1"><span>월드 와이드 웹(World Wide Web, WWW, W3)</span>은 <a href="#">인터넷</a>에 연결된 <a href="#">컴퓨터</a>를 통해 사람들이 정보를 공유할 수 있는 전 세계적인 정보 공유 시스템을 말한다. 간단히 웹(the Web)이라 부르는 경우가 많다. 이 용어는 인터넷과 동의어로 쓰이는 경우가 많으나 엄격히 말해 서로 다른 개념이다. 웹은 <a href="#">전자 메일</a>과 같이 인터넷 통신망에서 동작하는 하나의 '서비스'일 뿐이다. 그러나 1993년 이래로 웹은 인터넷 구조의 절대적 위치를 차지하고 있다.</p>
-                <p class="p2"><a href="#">인터넷</a>에서 <a href="#">HTTP</a> <a href="#">프로토콜</a>, <a href="#">하이퍼텍스트</a>, <a href="#">HTML</a>형식 등을 사용하여 그림과 문자를 교환하는 전송방식을 말하기도 한다.</p>
+                <h2 class="sec-tit" id="sec-tit">Web이란</h2>
+                <div class="img-box"><img id="sec-img" src="./images/img-web.jpg" alt="web 이미지"></div>
+                <p class="p1" id="sec-p1"><span>월드 와이드 웹(World Wide Web, WWW, W3)</span>은 <a href="#">인터넷</a>에 연결된 <a href="#">컴퓨터</a>를 통해 사람들이 정보를 공유할 수 있는 전 세계적인 정보 공유 시스템을 말한다. 간단히 웹(the Web)이라 부르는 경우가 많다. 이 용어는 인터넷과 동의어로 쓰이는 경우가 많으나 엄격히 말해 서로 다른 개념이다. 웹은 <a href="#">전자 메일</a>과 같이 인터넷 통신망에서 동작하는 하나의 '서비스'일 뿐이다. 그러나 1993년 이래로 웹은 인터넷 구조의 절대적 위치를 차지하고 있다.</p>
+                <p class="p2" id="sec-p2"><a href="#">인터넷</a>에서 <a href="#">HTTP</a> <a href="#">프로토콜</a>, <a href="#">하이퍼텍스트</a>, <a href="#">HTML</a>형식 등을 사용하여 그림과 문자를 교환하는 전송방식을 말하기도 한다.</p>
             </div>
         </section>
         <footer class="footer">
