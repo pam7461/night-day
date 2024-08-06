@@ -26,6 +26,64 @@
             line-height:1.5;
             color:var(--day-color01);
         }
+        .wrap{
+            overflow:hidden;
+        }
+        .container{
+            max-width:960px;
+            margin:0 auto;
+            padding:0 16px;
+        }
+
+        /* HEADER */
+        .header{
+            border-bottom:2px solid var(--day-color01);
+            padding:16px 0;
+        }
+        .doc-tit{
+            margin-bottom:36px;
+            font-weight:900;
+            font-size:1.8em;
+            color:var(--day-color02);
+            text-align:center;
+        }
+        .doc-tit:hover{
+            transform:scale(1.01);
+        }
+        .gnb{
+            display:grid;
+            grid-template-columns:1fr;
+            gap:6px;
+            font-weight:500;            
+            color:var(--day-color02);            
+        }
+        .gnb a{
+            text-decoration:underline;
+        }
+        .gnb a:hover{
+            text-decoration-color:var(--day-color01);
+        }
+        .btn{
+            position:fixed;
+            right:16px;
+            top:100px;
+            z-index:10000;
+            width:100px;
+            height:40px;
+            border:2px solid var(--day-color01);
+            border-radius:6px;
+            background:var(--day-color03); 
+            cursor:pointer;           
+        }
+        .btn:hover{
+            background:var(--day-color01);
+            color:var(--day-color03);
+        }
+
+
+
+        
+
 
 
 
@@ -33,7 +91,17 @@
 
         /* 768이상 스타일 */
         @media (min-width:768px){
-
+            .header{
+                padding:24px 0;
+            }
+            .gnb{
+                grid-template-columns:auto auto auto;
+                gap:0;
+                justify-content:space-around;
+            }
+            .btn{
+                top:70px;
+            }
         }
 
 
@@ -43,7 +111,18 @@
 
         /* 960이상 스타일 */
         @media (min-width:960px){
-
+            .header{
+                padding:48px 0;
+            }
+            .doc-tit{
+                font-size:2.2em;
+            }
+            .gnb{
+                justify-content:space-between;
+            }
+            .btn{
+                top:100px;
+            }
         }
     </style>
 </head>
